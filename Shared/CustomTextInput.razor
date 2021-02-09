@@ -1,0 +1,13 @@
+@ISizeable.Render( IThemeable.Render( RealRenderMethod(), Theme ), Size )
+
+@code {
+    RenderFragment RealRenderMethod()
+    {
+        return __builder =>
+            {
+            var style = @Theme?.IsDark ?? ParentTheme?.IsDark == true ? "background-color: black;" : "background-color: white;";
+            style += @Theme?.IsDark ?? ParentTheme?.IsDark == true ? "color: white;" : "color: black;";
+            <input type="text" style=@style />
+        };
+    }
+}

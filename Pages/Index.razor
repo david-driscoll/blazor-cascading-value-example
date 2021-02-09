@@ -1,0 +1,34 @@
+﻿@page "/"
+
+
+<CustomParent Theme=@DarkTheme>
+    <div>Grand Parent</div>
+    <CustomParent>
+        <div>Parent</div>
+        <CustomTextInput />
+    </CustomParent>
+</CustomParent>
+<br />
+<br />
+<CustomParent Theme=@DarkTheme>
+    <div>Grand Parent</div>
+    <CustomParent Theme=@LightTheme>
+        <div>Parent</div>
+        <CustomTextInput />
+    </CustomParent>
+</CustomParent>
+
+<br />
+<br />
+<CustomParent Theme=@DarkTheme>
+    <div>Grand Parent</div>
+    <CustomParent>
+        <div>Parent</div>
+        <CustomTextInput Theme=@LightTheme />
+    </CustomParent>
+</CustomParent>
+
+@code {
+    ThemeData DarkTheme => new ThemeData() { IsDark = true };
+    ThemeData LightTheme => new ThemeData() { IsDark = false };
+}

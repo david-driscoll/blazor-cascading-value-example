@@ -1,0 +1,19 @@
+@ISizeable.Render( IThemeable.Render( RealRenderMethod(), Theme ), Size )
+
+@code {
+    RenderFragment RealRenderMethod()
+    {
+        return __builder =>
+            {
+            <div
+                style="margin-left: 20px; background-color: @(Theme?.IsDark ?? ParentTheme?.IsDark == true ? " black" : "lightyellow"); color: @(Theme?.IsDark ?? ParentTheme?.IsDark == true ? " white" : "black")">
+                <div>Parent Theme Dark: @(ParentTheme?.IsDark == true)</div>
+                <div>Theme Dark: @(Theme?.IsDark == true)</div>
+                <div>Parent Size: @ParentSize</div>
+                <div>Theme: @Size</div>
+
+                @ChildContent
+            </div>
+        };
+    }
+}

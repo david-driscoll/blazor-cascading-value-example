@@ -1,0 +1,12 @@
+@ISizeable.Render( IThemeable.Render( RealRenderMethod(), Theme ), Size )
+
+@code {
+    RenderFragment RealRenderMethod()
+    {
+        return __builder =>
+            {
+            var style = @Theme?.IsDark ?? ParentTheme?.IsDark == true ? "background-color: black;" : "background-color: white;";
+            <input type="checkbox" style=@style />
+        };
+    }
+}
